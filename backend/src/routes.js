@@ -6,6 +6,8 @@ const SessionController = require("./controllers/SessionControlles");
 const SpotControllers = require("./controllers/SpotControllers");
 const DashboardControllers = require("./controllers/DashboardControllers");
 const BookingControllers = require("./controllers/BookingControllers");
+const ApprovalControllers = require("./controllers/ApprovalControllers");
+const RejectionControllers = require("./controllers/RejectionControllers");
 
 const routes = express.Router();
 const upload = multer(uploadConfig);
@@ -21,6 +23,9 @@ routes.get("/spots", SpotControllers.index);
 routes.get("/dashboard", DashboardControllers.show);
 
 routes.post("/spots/:spot_id/bookings", BookingControllers.store);
+
+routes.post("/bookings/:booking_id/approvals", ApprovalControllers.store);
+routes.post("/bookings/:booking_id/rejections", RejectionControllers.store);
 
 // routes.put("/users/:id", (req, res) => {
 //   return res.json({ message: req.param.id });
