@@ -67,4 +67,4 @@ typings/
 
 server.js
 
-yarn.lock
+.lock
